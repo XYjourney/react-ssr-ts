@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { resolve } = require('./utils');
 
 module.exports = {
-    entry: resolve('app/main.ts'),
+    entry: resolve('app/main.js'),
     output: {
         path: resolve('dist'),
         filename: 'bundle.js'
@@ -28,6 +28,31 @@ module.exports = {
                     }
                 }
             },
+            {
+                test: /\.html$/,
+                include: resolve('app'),
+                loader: 'html-loader'
+            },
+            {
+                test: /\.scss/,
+                include: resolve('app'),
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: `url-loader`,
+                options: {
+                  limit: 1000
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: `file-loader`
+            }
         ]
     },
     resolve: {
@@ -45,10 +70,5 @@ module.exports = {
             filename: 'index.html',
             template: resolve('template/app.html')
         })
-    ],
-    devServer:{
-      contentBase:resolve('.'),
-      open: true,
-      port: 9000
-    }
+    ]
 }

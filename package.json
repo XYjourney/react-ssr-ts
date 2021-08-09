@@ -5,14 +5,42 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --config ./build/webpack.base.config.js --mode development"
+    "dev": "webpack --config ./build/webpack.base.config.js --mode development",
+    "start": "webpack serve --hot --config ./build/webpack.dev.config.js",
+    "server": "node server/index.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.1.0",
+    "scss-loader": "0.0.1",
+    "style-loader": "^3.2.1",
     "ts-loader": "^9.2.5",
+    "url-loader": "^4.1.1",
     "webpack": "^5.48.0",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "@babel/register": "^7.14.5",
+    "koa": "^2.13.1",
+    "koa-router": "^10.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.1"
   }
 }
