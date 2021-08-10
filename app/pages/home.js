@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Home = props => (
-    <div>
+    <div className="main">
         <h1>{ props.title }</h1>
         <Link to="/list">跳转列表页</Link>
     </div>
